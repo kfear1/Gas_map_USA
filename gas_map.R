@@ -29,7 +29,7 @@ gas_states<- left_join(states,gasdata,by=c("STATE_NAME"="State"))
 png("gas_price_map.png", width = 800, height = 500)  
 
 #Plot the map
-ggplot(gas_states)+geom_sf(aes(fill=Regular))+theme_bw()+labs(fill="Gas price in dollars",title="Price of regular gas in each state",x="Longitude")+scale_fill_continuous(low="blue", high="pink", labels=comma)
+ggplot(gas_states)+geom_sf(aes(fill=Regular))+theme_bw()+labs(fill="Price of 1 gallon of gas in dollars",title="Price of regular gas in each state",x="Longitude")+scale_fill_continuous(low="yellow", high="red", labels=comma)
 
 #Finish saving as
 dev.off()
