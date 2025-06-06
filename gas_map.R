@@ -20,7 +20,7 @@ gasdata<- read.csv('gas.csv')
 
 states<- read_sf("STATES.shp")
 
-#left join
+#Perform left join to join the gas price data with the states shapefile
 
 gas_states<- left_join(states,gasdata,by=c("STATE_NAME"="State"))
 
