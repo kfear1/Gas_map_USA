@@ -2,7 +2,7 @@
 #Create regular gas price map by state
 
 #Set working directory 
-setwd('T:/students/kfear/Lab8')
+setwd("~/Documents/R/Github/Gas_map_USA")
 
 # Question 1- join gas.csv to states.shp and create a regular gas price map by state for the USA
 
@@ -15,9 +15,9 @@ library(leaflet)
 library(ggmap)
 
 
-gasdata<- read.csv('Data/gas.csv')
+gasdata<- read.csv('gas.csv')
 
-states<- read_sf("Data/STATES.shp")
+states<- read_sf("STATES.shp")
 
 #left join
 
