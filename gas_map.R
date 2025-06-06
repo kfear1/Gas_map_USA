@@ -13,6 +13,7 @@ library(ggplot2)
 library(scales)
 library(leaflet)
 library(ggmap)
+library(ggplot2)
 
 
 gasdata<- read.csv('gas.csv')
@@ -23,4 +24,12 @@ states<- read_sf("STATES.shp")
 
 gas_states<- left_join(states,gasdata,by=c("STATE_NAME"="State"))
 
-plot(gas_states["Regular"],main="Regular gas price in each state", breaks="jenks")
+
+# Save the plot as a PNG
+png("gas_price_map.png", width = 800, height = 500)  
+
+#Plot the map
+ggplot(gas_states)+geom_sf(aes(fill=Regular))+theme_bw()+labs(fill="Gas price in dollars",title="Price of regular gas in each state",x="Longitude")+scale_fill_continuous(low="blue", high="pink", labels=comma)
+
+#Finish saving as
+dev.off()
